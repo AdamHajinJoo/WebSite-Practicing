@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rippleEffect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+        .container {
+            text-align: center;
+            position: relative;
+            top: 240px;
+        }
+
+        button {
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 36px;
+            width: 300px;
+            height: 300px;
+            background: teal;
+            color: #fff;
+            border-width: 0px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        button .ripple {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.7);
+        }
+
+    </style>
+</head>
+<body>
+    <div class = 'container'>
+        <button>
+            눌러라 버튼.
+        </button>
+
+        <script>
+            let buttons = document.getElementByTagName('button');
+
+            Array.prototype.forEach.call(buttons, function (b) {
+                b.addEventListener('click', creatRipple);
+            });
+
+            function createRipple (e) {
+                let circle = document.createElement('div');
+                this.appendChild(circle);
+
+                circle.classList.add('ripple');
+            }
+</script>
+    </div>
+</body>
+</html>
